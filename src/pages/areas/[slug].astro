@@ -1,0 +1,161 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Prose from '../../components/Prose.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { CONTACT } from '../../consts';
+import { faqSchema } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const areas = await getCollection('areas', ({ data }) => !data.draft);
+  return areas.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, summary, faq, related } = entry.data;
+
+const all = await getCollection('areas', ({ data }) => !data.draft);
+const relatedEntries = related
+  .map((slug) => all.find((a) => a.id === slug))
+  .filter(Boolean) as typeof all;
+
+const schema = faq.length ? [faqSchema(faq)] : [];
+const waNumber = CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$3');
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <section class="page-header">
+    <div class="wrap">
+      <Breadcrumbs
+        trail={[{ name: 'Áreas de Atuação', url: '/areas' }, { name: title }]}
+      />
+      <p class="kicker">Área de atuação</p>
+      <h1>{title}</h1>
+      <p class="lead measure">{summary}</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="layout">
+      <div class="content">
+        <Prose>
+          <Content />
+        </Prose>
+
+        {
+          faq.length > 0 && (
+            <section class="faq">
+              <h2>Perguntas frequentes</h2>
+              {faq.map((f) => (
+                <div class="qa">
+                  <h3>{f.q}</h3>
+                  <p>{f.a}</p>
+                </div>
+              ))}
+            </section>
+          )
+        }
+      </div>
+
+      <aside class="aside">
+        <h2>Fale com o escritório</h2>
+        <p class="sm">Conte o seu caso e tire suas dúvidas. Resposta em até 24 horas úteis.</p>
+        <p class="row"><b>WhatsApp</b>{waNumber}</p>
+        <p class="row"><b>Telefone</b>{CONTACT.phones[0]}</p>
+        <p class="row"><b>E-mail</b>{CONTACT.email}</p>
+        <p class="row">
+          <b>Localização</b>{CONTACT.address.street} — {CONTACT.address.district}, {CONTACT.address.city}/{CONTACT.address.state}
+        </p>
+        <a
+          class="btn btn-wa"
+          href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Olá! Tenho dúvidas sobre ${title.toLowerCase()}.`)}`}
+          target="_blank"
+          rel="noopener"
+        >
+          Falar no WhatsApp
+        </a>
+      </aside>
+    </div>
+  </div>
+
+  {
+    relatedEntries.length > 0 && (
+      <section class="related">
+        <div class="wrap">
+          <p class="kicker">Áreas relacionadas</p>
+          <ul>
+            {relatedEntries.map((r) => (
+              <li><a href={`/areas/${r.id}`}>{r.data.shortTitle}</a></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <CtaBand
+    title="Precisa de ajuda com o seu caso?"
+    text="Fale com o escritório pelo WhatsApp. A análise inicial é sem compromisso."
+  />
+</BaseLayout>
+
+<style>
+  .page-header { padding-block: 3.5rem 2.25rem; border-bottom: 1px solid var(--color-rule); }
+  .measure { max-width: 58ch; margin-top: 1rem; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    gap: 4rem;
+    padding-block: 4rem;
+  }
+
+  .faq { border-top: 1px solid var(--color-rule); margin-top: 2.5rem; }
+  .faq > h2 { margin: 1.5rem 0 0.5rem; font-size: 1.5rem; }
+  .qa { border-bottom: 1px solid var(--color-rule); padding: 1.25rem 0; }
+  .qa h3 { font-size: 1.125rem; color: var(--color-teal-deep); margin-bottom: 0.5rem; }
+  .qa p { font-size: 1rem; color: var(--color-ink-soft); margin: 0; }
+
+  .aside {
+    align-self: start;
+    position: sticky;
+    top: 6.75rem;
+    border: 1px solid var(--color-rule);
+    border-top: 2px solid var(--color-gold);
+    padding: 1.6rem;
+  }
+  .aside h2 { font-size: 1.125rem; }
+  .aside .sm { font-size: 0.9375rem; color: var(--color-ink-soft); margin: 0.375rem 0 1.1rem; }
+  .aside .row { font-size: 0.9375rem; color: var(--color-ink); margin: 0 0 0.75rem; padding-left: 1rem; position: relative; }
+  .aside .row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    background: var(--color-gold);
+    border-radius: 50%;
+  }
+  .aside .row b {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 1px;
+  }
+  .aside .btn { width: 100%; justify-content: center; margin-top: 0.5rem; }
+
+  .related { border-top: 1px solid var(--color-gold-line); padding-block: 3rem; }
+  .related ul { list-style: none; padding: 0; margin: 0.875rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-family: var(--font-display); }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .aside { position: static; }
+  }
+</style>

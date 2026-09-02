@@ -1,0 +1,25 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  lead?: string;
+  kicker?: string;
+  trail?: { name: string; url?: string }[];
+}
+const { title, lead, kicker, trail } = Astro.props;
+---
+
+<section class="page-header">
+  <div class="wrap">
+    {trail && <Breadcrumbs trail={trail} />}
+    {kicker && <p class="kicker">{kicker}</p>}
+    <h1>{title}</h1>
+    {lead && <p class="lead measure">{lead}</p>}
+  </div>
+</section>
+
+<style>
+  .page-header { padding-block: 3.75rem 2.5rem; }
+  .measure { max-width: 60ch; margin-top: 1rem; }
+</style>

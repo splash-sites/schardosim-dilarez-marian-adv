@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import WhatsappButton from '../../components/WhatsappButton.astro';
+
+const areas = (await getCollection('areas', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="Áreas de Atuação"
+  description="Áreas de atuação em Direito Previdenciário: aposentadorias, auxílio por incapacidade, BPC/LOAS, pensão por morte, salário-maternidade, revisão de benefício e recurso quando o INSS nega."
+>
+  <PageHeader
+    title="Áreas de atuação em Direito Previdenciário"
+    trail={[{ name: 'Áreas de Atuação' }]}
+    lead="O escritório trabalha exclusivamente com benefícios do INSS — na via administrativa, quando cabível, e na Justiça Federal quando necessário."
+  />
+
+  <section class="rule-top block">
+    <div class="wrap">
+      <ul class="areas">
+        {
+          areas.map((a) => (
+            <li class="area">
+              <div class="label">
+                <h2><a href={`/areas/${a.id}`}>{a.data.shortTitle}</a></h2>
+                {a.data.featured && <span class="flag">Principal</span>}
+              </div>
+              <p>{a.data.summary}</p>
+              <a class="tlink go" href={`/areas/${a.id}`}>Ver página</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap closer">
+      <h2>Não sabe em qual situação o seu caso se encaixa?</h2>
+      <WhatsappButton
+        label="Descrever meu caso no WhatsApp"
+        text="Olá! Gostaria de descrever o meu caso e entender quais direitos eu tenho."
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .block { padding-block: 3.5rem 4.5rem; }
+  .areas { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--color-rule); }
+  .area {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 2rem;
+    padding: 2rem 0.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .area:hover { background: rgba(156, 122, 60, 0.06); }
+  .label { grid-column: 1; display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .label h2 { font-size: 1.35rem; }
+  .flag {
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .area p { grid-column: 1; margin: 0; font-size: 1rem; color: var(--color-ink-soft); max-width: 62ch; }
+  .area .go { grid-column: 2; grid-row: 1 / span 2; align-self: start; white-space: nowrap; }
+
+  .closer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.25rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-gold-line);
+    padding-top: 2rem;
+  }
+  .closer h2 { max-width: 22ch; }
+
+  @media (max-width: 720px) {
+    .area { grid-template-columns: 1fr; }
+    .area .go { grid-column: 1; grid-row: auto; }
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+import JsonLd from './JsonLd.astro';
+import { breadcrumbSchema } from '../lib/seo';
+
+interface Props {
+  trail: { name: string; url?: string }[];
+}
+const { trail } = Astro.props;
+const full = [{ name: 'Início', url: '/' }, ...trail];
+---
+
+<nav class="crumb" aria-label="Trilha de navegação">
+  {
+    full.map((item, i) => (
+      <>
+        {i > 0 && <span class="sep" aria-hidden="true">/</span>}
+        {item.url && i < full.length - 1 ? (
+          <a href={item.url}>{item.name}</a>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+      </>
+    ))
+  }
+</nav>
+
+<JsonLd schema={breadcrumbSchema(full)} />
+
+<style>
+  .crumb {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    color: var(--color-ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .crumb a { color: var(--color-gold); }
+  .crumb .sep { color: var(--color-gold-line); }
+</style>

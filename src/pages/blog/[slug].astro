@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Prose from '../../components/Prose.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { articleSchema } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, pubDate, updatedDate, author } = entry.data;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+
+const schema = articleSchema({
+  title,
+  description,
+  url: `/blog/${entry.id}`,
+  datePublished: pubDate,
+  dateModified: updatedDate,
+  author,
+});
+---
+
+<BaseLayout title={title} description={description} article schema={schema}>
+  <article>
+    <div class="wrap head">
+      <Breadcrumbs trail={[{ name: 'Artigos', url: '/blog' }, { name: title }]} />
+      <h1>{title}</h1>
+      <p class="byline">
+        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+        {updatedDate && <span> · atualizado em {fmt(updatedDate)}</span>}
+      </p>
+    </div>
+
+    <div class="wrap body">
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </article>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .head { padding-block: 3.5rem 1.5rem; border-bottom: 1px solid var(--color-rule); }
+  .byline {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    color: var(--color-ink-soft);
+    margin-top: 0.75rem;
+  }
+  .body { padding-block: 3rem 4.5rem; }
+</style>

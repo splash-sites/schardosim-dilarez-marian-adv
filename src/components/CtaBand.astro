@@ -1,0 +1,47 @@
+---
+import WhatsappButton from './WhatsappButton.astro';
+
+interface Props {
+  title?: string;
+  text?: string;
+  /** Texto pré-preenchido da conversa do WhatsApp. */
+  waText?: string;
+  /** Rótulo do botão. */
+  ctaLabel?: string;
+}
+const {
+  title = 'Ficou com uma dúvida sobre o seu benefício?',
+  text = 'Fale com o escritório pelo WhatsApp. Respondemos em até 24 horas úteis.',
+  waText,
+  ctaLabel = 'Entrar em contato',
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="wrap inner">
+    <div class="copy">
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <div class="action">
+      <WhatsappButton variant="gold" text={waText} label={ctaLabel} />
+      <p class="hours">Seg. a qui. 9h–12h e 13h–17h · Sex. 9h–12h</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band { background: var(--color-teal-deep); color: #fff; }
+  .cta-band .wrap { padding-block: 4rem; }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.75rem;
+    flex-wrap: wrap;
+  }
+  .copy { max-width: 34ch; }
+  .cta-band h2 { color: #fff; }
+  .cta-band p { color: rgba(255, 255, 255, 0.82); margin: 0.5rem 0 0; }
+  .hours { font-size: 0.8125rem; color: rgba(255, 255, 255, 0.65); margin-top: 0.875rem; }
+</style>

@@ -1,0 +1,67 @@
+---
+import { SITE } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Caminho absoluto da imagem OG (dentro de /public) ou URL completa. */
+  image?: string;
+  noindex?: boolean;
+  /** Marca a página como artigo para Open Graph. */
+  article?: boolean;
+}
+const {
+  title,
+  description = SITE.description,
+  image,
+  noindex = false,
+  article = false,
+} = Astro.props;
+
+const pageTitle = title ? `${title} — ${SITE.shortName}` : SITE.name;
+const canonical =
+  new URL(Astro.url.pathname, Astro.site ?? SITE.url).href.replace(/\/$/, '') || SITE.url;
+const ogImage = image
+  ? image.startsWith('http')
+    ? image
+    : new URL(image, Astro.site ?? SITE.url).href
+  : undefined;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta name="author" content={SITE.author} />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<meta name="theme-color" content="#144e52" />
+
+<!-- Open Graph -->
+<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+{ogImage && <meta name="twitter:image" content={ogImage} />}
+
+<!-- Fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap"
+/>
+
+<link rel="sitemap" href="/sitemap-index.xml" />

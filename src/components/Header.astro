@@ -1,0 +1,241 @@
+---
+import { NAV, whatsappHref } from '../consts';
+import HexMark from './HexMark.astro';
+import WhatsappButton from './WhatsappButton.astro';
+
+const here = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => {
+  const h = href.replace(/\/$/, '') || '/';
+  return h === '/' ? here === '/' : here === h || here.startsWith(h + '/');
+};
+---
+
+<header class="site-header" id="site-header">
+  <div class="wrap hd">
+    <a class="brand" href="/">
+      <HexMark size={30} />
+      <span class="brand-txt">
+        <strong>Schardosim, Dilarez e Marian</strong>
+        <span>Advogados Associados</span>
+      </span>
+    </a>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      <span class="menu-label">Menu</span>
+      <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Navegação principal">
+      {
+        NAV.map((item) => (
+          <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+      <a class="nav-wa" href={whatsappHref} target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z" />
+        </svg>
+        Falar no WhatsApp
+      </a>
+    </nav>
+
+    <WhatsappButton label="WhatsApp" class="hd-cta" />
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const btn = header?.querySelector<HTMLButtonElement>('.menu-btn');
+  const nav = document.getElementById('site-nav');
+  if (header && btn && nav) {
+    header.dataset.enhanced = 'true';
+    const setOpen = (open: boolean) => {
+      header.dataset.open = String(open);
+      btn.setAttribute('aria-expanded', String(open));
+    };
+    setOpen(false);
+    btn.addEventListener('click', () => setOpen(header.dataset.open !== 'true'));
+    nav.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: var(--color-paper);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .hd {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 4.5rem;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .brand :global(svg) { flex: none; }
+  .brand-txt { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+  .brand-txt strong {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: var(--color-teal-deep);
+  }
+  .brand-txt span {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-top: 2px;
+  }
+
+  .menu-btn { display: none; }
+
+  .nav {
+    display: flex;
+    gap: 1.75rem;
+    margin-left: auto;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .nav > a { color: var(--color-ink); white-space: nowrap; }
+  .nav > a:hover { color: var(--color-gold); }
+  .nav > a[aria-current='page'] { color: var(--color-gold); }
+
+  /* item de WhatsApp: só aparece dentro do menu no mobile */
+  .nav a.nav-wa { display: none; }
+
+  /* .hd-cta sizing lives in global.css (crosses component boundary) */
+
+  /* -------- mobile / tablet -------- */
+  @media (max-width: 900px) {
+    .hd {
+      gap: 0.5rem 0.6rem;
+      padding-block: 0.7rem;
+      min-height: 3.75rem;
+      flex-wrap: wrap;
+    }
+    .brand { flex: 1 1 0; min-width: 0; }
+    .brand-txt strong { white-space: normal; overflow-wrap: break-word; }
+
+    .menu-btn {
+      order: 2;
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-teal);
+      background: transparent;
+      border: 1px solid var(--color-rule);
+      border-radius: 3px;
+      padding: 0.6rem 0.85rem;
+      min-height: 2.75rem;
+    }
+    .menu-btn .menu-icon {
+      width: 1.15rem;
+      height: 1.15rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+    .site-header[data-open='true'] .menu-btn {
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+
+    /* (o .hd-cta do cabeçalho é ocultado no mobile via global.css) */
+
+    .nav {
+      order: 4;
+      flex-basis: 100%;
+      width: 100%;
+      margin-left: 0;
+      flex-direction: column;
+      gap: 0;
+      font-size: 1rem;
+    }
+    .nav > a {
+      display: block;
+      padding: 0.95rem 0.25rem;
+      border-bottom: 1px solid var(--color-rule);
+    }
+
+    .nav a.nav-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+      padding: 0.95rem 1rem;
+      background: var(--color-teal);
+      color: #fff;
+      border-radius: 3px;
+      border-bottom: 0;
+      font-family: var(--font-display);
+      font-weight: 500;
+    }
+    .nav a.nav-wa:hover { background: var(--color-teal-deep); color: #fff; }
+    .nav a.nav-wa svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+    }
+
+    /* with JS: nav collapses into a dropdown toggled by the button */
+    .site-header[data-enhanced] .nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      width: auto;
+      padding: 0.25rem max(1.25rem, calc((100vw - 72rem) / 2 + 2.5rem));
+      background: var(--color-paper);
+      border-bottom: 1px solid var(--color-rule);
+      box-shadow: 0 14px 26px -14px rgba(12, 53, 56, 0.3);
+      display: none;
+    }
+    .site-header[data-enhanced][data-open='true'] .nav { display: flex; }
+  }
+
+  @media (max-width: 460px) {
+    .brand-txt strong { font-size: 0.85rem; }
+    .menu-btn .menu-label { display: none; }
+    .menu-btn { padding: 0.6rem; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header[data-enhanced] .nav { transition: none; }
+  }
+</style>

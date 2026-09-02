@@ -1,0 +1,38 @@
+---
+import { whatsappHref, CONTACT } from '../consts';
+
+interface Props {
+  label?: string;
+  /** Texto pré-preenchido da conversa; sobrescreve o padrão de consts. */
+  text?: string;
+  variant?: 'wa' | 'gold';
+  showIcon?: boolean;
+  class?: string;
+}
+const {
+  label = 'Falar no WhatsApp',
+  text,
+  variant = 'wa',
+  showIcon = true,
+  class: className = '',
+} = Astro.props;
+
+const href = text
+  ? `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`
+  : whatsappHref;
+---
+
+<a
+  class:list={['btn', variant === 'gold' ? 'btn-gold' : 'btn-wa', className]}
+  href={href}
+  target="_blank"
+  rel="noopener"
+  aria-label={label}
+>
+  {showIcon && (
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z" />
+    </svg>
+  )}
+  {label}
+</a>

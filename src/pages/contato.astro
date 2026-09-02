@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+import ContactMap from '../components/ContactMap.astro';
+import { CONTACT, SOCIAL } from '../consts';
+
+const waNumber = CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$3');
+---
+
+<BaseLayout
+  title="Contato"
+  description="Fale com Schardosim, Dilarez e Marian Advogados Associados por WhatsApp, telefone ou e-mail. Escritório no Centro de Gravataí/RS. Resposta em até 24 horas úteis."
+>
+  <PageHeader
+    title="Contato"
+    trail={[{ name: 'Contato' }]}
+    lead="Fale com o escritório pelo canal que preferir. Atendimento presencial em Gravataí e on-line para todo o Brasil."
+  />
+
+  <section class="rule-top block">
+    <div class="wrap grid">
+      <div>
+        <p class="kicker">Como falar com a gente</p>
+        <dl class="chan">
+          <div class="r">
+            <dt>WhatsApp</dt>
+            <dd>
+              <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">{waNumber}</a>
+              <span class="muted">— canal preferencial</span>
+            </dd>
+          </div>
+          <div class="r">
+            <dt>Telefone</dt>
+            <dd>{CONTACT.phones.join(' · ')}</dd>
+          </div>
+          <div class="r">
+            <dt>E-mail</dt>
+            <dd><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></dd>
+          </div>
+          <div class="r">
+            <dt>Endereço</dt>
+            <dd>
+              {CONTACT.address.street}<br />
+              {CONTACT.address.district} — {CONTACT.address.city}/{CONTACT.address.state} · CEP {CONTACT.address.postalCode}
+            </dd>
+          </div>
+        </dl>
+
+        <table class="hours">
+          <tbody>
+            <tr><th scope="row">Segunda a quinta</th><td>9h–12h e 13h–17h</td></tr>
+            <tr><th scope="row">Sexta-feira</th><td>9h–12h · WhatsApp até 16h</td></tr>
+            <tr><th scope="row">Sábado e domingo</th><td>Fechado</td></tr>
+          </tbody>
+        </table>
+
+        <p class="resp">Respondemos as mensagens em até 24 horas úteis.</p>
+        <div style="margin-top:1.25rem">
+          <WhatsappButton />
+        </div>
+      </div>
+
+      <div>
+        <ContactMap />
+        <div class="figure" aria-hidden="true">Foto da fachada a definir</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap two">
+      <div>
+        <p class="kicker">Área de atendimento</p>
+        <h2>Presencial na região, on-line no país todo</h2>
+        <p style="color:var(--color-ink-soft)">
+          Atendimento presencial para Gravataí, Cachoeirinha, Alvorada, Viamão, Glorinha e
+          Porto Alegre. Para as demais cidades e estados, todo o acompanhamento é feito à
+          distância, por WhatsApp, e-mail e chamadas de vídeo.
+        </p>
+      </div>
+      <div>
+        <p class="kicker">Redes sociais</p>
+        <ul class="social">
+          {SOCIAL.instagram && <li><a href={SOCIAL.instagram} target="_blank" rel="noopener">Instagram</a></li>}
+          {SOCIAL.facebook && <li><a href={SOCIAL.facebook} target="_blank" rel="noopener">Facebook</a></li>}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .block { padding-block: 4rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+
+  .chan { border-top: 1px solid var(--color-rule); margin: 0.375rem 0 0; }
+  .chan .r {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1.5rem;
+    padding: 1.125rem 0.25rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .chan dt {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .chan dd { margin: 0; color: var(--color-ink); }
+  .chan .muted { color: var(--color-ink-soft); font-size: 0.9375rem; margin-left: 0.4rem; }
+
+  .hours { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 1rem; }
+  .hours th,
+  .hours td { text-align: left; padding: 0.625rem 0; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-soft); }
+  .hours th { font-family: var(--font-display); font-weight: 500; color: var(--color-teal-deep); font-size: 0.875rem; }
+
+  .resp {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    color: var(--color-ink-soft);
+    border-left: 2px solid var(--color-gold-line);
+    padding-left: 0.875rem;
+    margin-top: 1.25rem;
+  }
+
+  .figure {
+    margin-top: 1.25rem;
+    border: 1px solid var(--color-rule);
+    background: var(--color-teal-pale);
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+
+  .social { list-style: none; padding: 0; margin: 0.375rem 0 0; display: grid; gap: 0.75rem; font-family: var(--font-display); }
+  .social a { border-bottom: 1px solid var(--color-gold-line); padding-bottom: 3px; }
+
+  @media (max-width: 860px) {
+    .grid,
+    .two { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+</style>

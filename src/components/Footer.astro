@@ -1,0 +1,127 @@
+---
+import { SITE, CONTACT, SOCIAL } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fbrand">
+        <strong>Schardosim, Dilarez e Marian<br />Advogados Associados</strong>
+        <p>
+          Advocacia especializada em Direito Previdenciário.<br />
+          {CONTACT.address.street} — {CONTACT.address.district}, {CONTACT.address.city}/{CONTACT.address.state},
+          CEP {CONTACT.address.postalCode}.
+        </p>
+      </div>
+
+      <nav aria-label="Rodapé — navegação">
+        <h2>Navegação</h2>
+        <a href="/sobre">O Escritório</a>
+        <a href="/areas">Áreas de Atuação</a>
+        <a href="/equipe">Equipe</a>
+        <a href="/blog">Artigos</a>
+        <a href="/contato">Contato</a>
+      </nav>
+
+      <nav aria-label="Rodapé — áreas">
+        <h2>Atuação</h2>
+        <a href="/areas/aposentadorias">Aposentadorias</a>
+        <a href="/areas/auxilio-por-incapacidade-temporaria">Auxílio por incapacidade</a>
+        <a href="/areas/bpc-loas">BPC / LOAS</a>
+        <a href="/areas/pensao-por-morte">Pensão por morte</a>
+        <a href="/areas/revisao-de-beneficio">Revisão de benefício</a>
+      </nav>
+
+      <div>
+        <h2>Contato</h2>
+        <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">
+          WhatsApp {CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$3')}
+        </a>
+        <span class="fline">Telefone {CONTACT.phones.join(' · ')}</span>
+        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+        {SOCIAL.instagram && <a href={SOCIAL.instagram} target="_blank" rel="noopener">Instagram</a>}
+        {SOCIAL.facebook && <a href={SOCIAL.facebook} target="_blank" rel="noopener">Facebook</a>}
+      </div>
+    </div>
+
+    <div class="fbar">
+      <span>© {year} {SITE.name} · CNPJ [inserir] · OAB/RS</span>
+      <span>
+        Conforme o Código de Ética e Disciplina da OAB.
+        <a href="/politica-de-privacidade">Política de Privacidade</a>
+        <button type="button" class="cookie-reset" data-consent-reset>Configurações de cookies</button>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-teal-deep);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9375rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .site-footer .wrap { padding-top: 3.75rem; padding-bottom: 1.6rem; }
+  .fcols {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 2.25rem;
+  }
+  .site-footer h2 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.875rem;
+    font-weight: 600;
+  }
+  .site-footer a,
+  .site-footer .fline {
+    color: rgba(255, 255, 255, 0.75);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .site-footer a:hover { color: var(--color-gold-line); }
+  .fbrand strong {
+    font-family: var(--font-display);
+    color: #fff;
+    display: block;
+    margin-bottom: 0.625rem;
+    font-weight: 500;
+  }
+  .fbrand p { margin: 0; }
+  .fbar {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 2.75rem;
+    padding-top: 1.25rem;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .fbar a { display: inline; color: var(--color-gold-line); }
+  .cookie-reset {
+    display: inline;
+    margin-left: 0.5rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    font: inherit;
+    color: var(--color-gold-line);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+  .cookie-reset:hover { color: #fff; }
+  @media (max-width: 860px) {
+    .fcols { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .fcols { grid-template-columns: 1fr; }
+  }
+</style>

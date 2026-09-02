@@ -1,0 +1,45 @@
+# --- build / saída ---
+dist/
+.output/
+.vercel/
+.astro/
+
+# --- dependências ---
+node_modules/
+.pnp
+.pnp.js
+jspm_packages/
+
+# --- variáveis de ambiente (o exemplo VAI para o repo) ---
+.env
+.env.*
+!.env.example
+
+# --- protótipo / material de apresentação (não faz parte do site) ---
+design/
+*.pdf
+src/**/*.dc.html
+
+# --- logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- caches / temporários ---
+*.tsbuildinfo
+.cache/
+.temp/
+.tmp/
+coverage/
+
+# --- editor / SO / ferramentas locais ---
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~

@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Prose from '../components/Prose.astro';
+import { CONTACT } from '../consts';
+---
+
+<BaseLayout
+  title="Política de Privacidade"
+  description="Como o site de Schardosim, Dilarez e Marian Advogados Associados trata os dados de quem entra em contato, conforme a LGPD."
+  noindex
+>
+  <PageHeader title="Política de Privacidade" trail={[{ name: 'Política de Privacidade' }]} />
+
+  <div class="wrap body">
+    <Prose>
+      <p>
+        <strong>[Texto provisório — a ser redigido e revisado por uma advogada do escritório
+        antes da publicação.]</strong>
+      </p>
+
+      <h2>Quem é o responsável pelos dados</h2>
+      <p>
+        Schardosim, Dilarez e Marian Advogados Associados, com endereço em
+        {' '}{CONTACT.address.street} — {CONTACT.address.district}, {CONTACT.address.city}/{CONTACT.address.state},
+        CEP {CONTACT.address.postalCode}. Contato: {CONTACT.email}.
+      </p>
+
+      <h2>Quais dados são tratados</h2>
+      <p>
+        Este site é estático e não possui formulários. O contato acontece por WhatsApp,
+        telefone ou e-mail, por iniciativa do visitante. Os dados fornecidos nesse contato
+        (nome, telefone, e-mail e as informações que a pessoa decidir compartilhar sobre o
+        seu caso) são usados apenas para responder e, se for o caso, prestar o serviço
+        jurídico.
+      </p>
+
+      <h2>Cookies e conteúdo de terceiros</h2>
+      <p>
+        Por padrão, o site não instala cookies de terceiros. Usamos apenas o armazenamento
+        local necessário para lembrar a sua escolha sobre cookies.
+      </p>
+      <p>
+        Na página de Contato há um mapa do Google Maps. Ele só é carregado depois que você
+        aceita, seja no aviso de cookies, seja clicando em "Carregar o mapa". Ao carregar, o
+        Google pode registrar o seu acesso e usar cookies próprios, conforme a política de
+        privacidade do Google. Você pode rever a sua escolha a qualquer momento pelo link
+        "Configurações de cookies" no rodapé.
+      </p>
+
+      <h2>Direitos do titular</h2>
+      <p>
+        Nos termos da Lei nº 13.709/2018 (LGPD), o titular pode solicitar confirmação de
+        tratamento, acesso, correção, anonimização, portabilidade e eliminação dos seus
+        dados, entre outros direitos, pelo e-mail {CONTACT.email}.
+      </p>
+
+      <h2>Atualizações</h2>
+      <p>Esta política pode ser atualizada. A data da última revisão será informada aqui.</p>
+    </Prose>
+  </div>
+</BaseLayout>
+
+<style>
+  .body { padding-block: 2.5rem 4.5rem; }
+</style>

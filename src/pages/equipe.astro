@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { TEAM } from '../consts';
+
+const initials = (name: string) =>
+  name
+    .replace(/\[.*?\]/g, '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? '')
+    .join('') || '—';
+---
+
+<BaseLayout
+  title="Equipe"
+  description="As advogadas sócias de Schardosim, Dilarez e Marian Advogados Associados. Atuação dedicada em Direito Previdenciário, com acompanhamento individual de cada caso."
+>
+  <PageHeader
+    title="Equipe"
+    trail={[{ name: 'Equipe' }]}
+    lead="O atendimento é conduzido diretamente pelas advogadas sócias, com dedicação individual a cada caso."
+  />
+
+  <div class="wrap">
+    <p class="note">
+      Retratos das advogadas a produzir · textos de Dilarez e Marian são exemplo, a cliente
+      vai enviar os definitivos.
+    </p>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="people">
+        {
+          TEAM.map((p) => (
+            <article class="person">
+              <div class="portrait" aria-hidden="true">
+                <span class="mono">{initials(p.name)}</span>
+                <span class="cap">Retrato a produzir</span>
+              </div>
+              <div>
+                <h3 class:list={[p.fictitious && 'hold']}>{p.name}</h3>
+                <p class="role">{p.role}</p>
+                <p class="oab">{p.oab}</p>
+                {p.education.length > 0 && (
+                  <ul class="edu">
+                    {p.education.map((e) => (
+                      <li>{e}</li>
+                    ))}
+                  </ul>
+                )}
+                <p class="bio" class:list={[p.fictitious && 'hold']}>
+                  {p.bio}
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap approach">
+      <div>
+        <p class="kicker">No atendimento</p>
+        <h2>Um jeito de trabalhar</h2>
+      </div>
+      <dl>
+        <div class="d">
+          <dt>Linguagem simples</dt>
+          <dd>Explicamos o seu caso sem juridiquês, do começo ao fim.</dd>
+        </div>
+        <div class="d">
+          <dt>Acompanhamento próximo</dt>
+          <dd>Você é informado a cada movimento do processo, administrativo ou judicial.</dd>
+        </div>
+        <div class="d">
+          <dt>Análise cuidadosa</dt>
+          <dd>Cada caso é estudado nas suas particularidades antes de qualquer pedido.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Quer falar com uma das advogadas?"
+    text="Envie a sua dúvida pelo WhatsApp. Resposta em até 24 horas úteis."
+  />
+</BaseLayout>
+
+<style>
+  .block { padding-block: 3rem 4.5rem; }
+  .note {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    border-left: 2px solid var(--color-gold-line);
+    padding-left: 0.875rem;
+  }
+  .people { border-top: 1px solid var(--color-rule); margin-top: 1.5rem; }
+  .person {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .portrait {
+    border: 1px solid var(--color-rule);
+    background: var(--color-teal-pale);
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .portrait .mono { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-gold); }
+  .portrait .cap {
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+  .role { font-family: var(--font-display); color: var(--color-gold); font-size: 0.875rem; margin: 0.125rem 0; }
+  .oab { font-family: var(--font-display); font-size: 0.8125rem; color: var(--color-ink-soft); margin-bottom: 0.9rem; }
+  .edu { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.4rem; }
+  .edu li { padding-left: 1.15rem; position: relative; font-size: 0.9375rem; color: var(--color-ink-soft); }
+  .edu li::before { content: '—'; position: absolute; left: 0; color: var(--color-gold); }
+  .bio { color: var(--color-ink-soft); font-size: 1rem; margin: 0; }
+  .hold { color: var(--color-gold); font-style: italic; }
+
+  .approach { display: grid; grid-template-columns: 1fr 2fr; gap: 2.75rem; align-items: start; }
+  .approach dl { margin: 0; border-top: 1px solid var(--color-rule); }
+  .approach .d { padding: 1.25rem 0; border-bottom: 1px solid var(--color-rule); }
+  .approach dt { font-family: var(--font-display); font-size: 1.0625rem; color: var(--color-teal-deep); margin-bottom: 0.25rem; }
+  .approach dd { margin: 0; font-size: 0.97rem; color: var(--color-ink-soft); }
+
+  @media (max-width: 720px) {
+    .person { grid-template-columns: 1fr; gap: 1.5rem; }
+    .portrait { max-width: 220px; }
+    .approach { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>

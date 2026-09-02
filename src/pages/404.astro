@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+---
+
+<BaseLayout title="Página não encontrada" description="A página que você procurou não existe ou foi movida." noindex>
+  <section class="wrap notfound">
+    <p class="kicker">Erro 404</p>
+    <h1>Não encontramos essa página</h1>
+    <p class="lead">
+      O endereço pode ter mudado. Volte para o início ou fale com o escritório pelo WhatsApp.
+    </p>
+    <div class="actions">
+      <a class="btn btn-out" href="/">Voltar ao início</a>
+      <WhatsappButton />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound { padding-block: 6rem 8rem; max-width: 46rem; }
+  .actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+</style>

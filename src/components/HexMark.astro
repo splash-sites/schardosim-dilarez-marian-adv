@@ -1,0 +1,36 @@
+---
+/**
+ * Símbolo da marca — hexágono / escudo.
+ * Recriação aproximada; substituir pelo logotipo oficial em vetor quando disponível.
+ */
+interface Props {
+  size?: number;
+  color?: string;
+  class?: string;
+}
+const { size = 30, color = 'var(--color-gold)', class: className } = Astro.props;
+const h = Math.round(size * 1.2);
+---
+
+<svg
+  width={size}
+  height={h}
+  viewBox="0 0 30 36"
+  class={className}
+  role="img"
+  aria-label="Símbolo Schardosim, Dilarez e Marian"
+>
+  <path
+    d="M15 1 28.5 9 V27 L15 35 1.5 27 V9 Z"
+    fill="none"
+    stroke={color}
+    stroke-width="1.5"
+  />
+  <path
+    d="M15 1.5 V17 M15 17 6.5 12.5 M15 17 23.5 12.5 M15 17 V34.5 M7.5 22 15 17 22.5 22"
+    fill="none"
+    stroke={color}
+    stroke-width="1.1"
+    stroke-linecap="round"
+  />
+</svg>

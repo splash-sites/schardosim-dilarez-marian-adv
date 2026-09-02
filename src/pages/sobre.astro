@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBand from '../components/CtaBand.astro';
+import HexMark from '../components/HexMark.astro';
+import { TEAM } from '../consts';
+---
+
+<BaseLayout
+  title="O Escritório"
+  description="Escritório de advocacia com atuação exclusiva em Direito Previdenciário desde 2004, em Gravataí/RS. Conhecimento técnico, ética e atendimento próximo em cada caso."
+>
+  <PageHeader
+    title="O Escritório"
+    trail={[{ name: 'O Escritório' }]}
+    lead="Uma trajetória construída com conhecimento técnico, ética e respeito às pessoas que confiam a nós a defesa de seus direitos."
+  />
+
+  <section class="rule-top block">
+    <div class="wrap two">
+      <div class="figure" aria-hidden="true">
+        <HexMark size={90} color="var(--color-gold-line)" />
+        <span>Imagem do escritório a definir</span>
+      </div>
+      <div>
+        <p class="kicker">Nossa história</p>
+        <h2>Direito Previdenciário desde 2004</h2>
+        <p>
+          O escritório nasceu da dedicação ao Direito Previdenciário e, ao longo de mais de
+          duas décadas, construiu sua atuação com base em conhecimento técnico, atualização
+          permanente e acompanhamento individual de cada caso.
+        </p>
+        <p>
+          A experiência acumulada permite uma análise cuidadosa das particularidades de cada
+          situação, para identificar direitos, possibilidades e a estratégia jurídica mais
+          adequada.
+        </p>
+        <p>
+          A excelência na advocacia não se resume ao conhecimento jurídico. Por isso, unimos
+          competência técnica a escuta atenta, acolhimento, clareza e respeito.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap">
+      <p class="kicker">O que nos orienta</p>
+      <h2 style="margin-bottom:1.75rem">Missão, visão e valores</h2>
+      <dl class="deflist">
+        <div class="def">
+          <dt>Missão</dt>
+          <dd>
+            Oferecer uma advocacia próxima, transparente e responsável, em que cada cliente
+            compreenda seus direitos, tenha segurança nas orientações e seja acompanhado com
+            seriedade em todas as etapas da sua demanda.
+          </dd>
+        </div>
+        <div class="def">
+          <dt>Visão</dt>
+          <dd>
+            <span class="hold">[rascunho a validar]</span> Ser referência em Direito
+            Previdenciário na região de Gravataí pela qualidade técnica e pelo cuidado no
+            atendimento.
+          </dd>
+        </div>
+        <div class="def">
+          <dt>Valores</dt>
+          <dd>
+            <ul class="vlist">
+              <li>Conhecimento técnico e atualização permanente</li>
+              <li>Ética e responsabilidade</li>
+              <li>Escuta, acolhimento e clareza</li>
+              <li>Dedicação individual a cada caso</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap two">
+      <div>
+        <p class="kicker">Nossa marca</p>
+        <h2>Unidade, inteligência e harmonia</h2>
+        <p>
+          O símbolo do escritório é formado por hexágonos — figura ligada à perfeição, ao
+          trabalho, à sabedoria e à igualdade. A mesma forma remete a um escudo: proteção aos
+          clientes.
+        </p>
+        <p>
+          Os três elementos representam os nomes que compõem a sociedade — Schardosim, Dilarez
+          e Marian — que, juntos, formam um todo.
+        </p>
+      </div>
+      <div class="markbox"><HexMark size={150} /></div>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap">
+      <p class="kicker">Quem atende você</p>
+      <h2 style="margin-bottom:0.4rem">As sócias</h2>
+      <p class="note">Retratos das advogadas a produzir · dados de Dilarez e Marian a confirmar.</p>
+      <div class="roster">
+        {
+          TEAM.map((p) => (
+            <div class="rrow">
+              <div>
+                <h3 class:list={[p.fictitious && 'hold']}>{p.name}</h3>
+                <span class="oab">{p.oab}</span>
+              </div>
+              <p class:list={[p.fictitious && 'hold']}>{p.bio}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p style="margin-top:1.5rem"><a class="tlink" href="/equipe">Ver a equipe completa</a></p>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap two">
+      <div>
+        <p class="kicker">Onde e como atendemos</p>
+        <h2>Presencial em Gravataí, on-line para todo o Brasil</h2>
+        <p>
+          O atendimento presencial acontece no nosso escritório, no Centro de Gravataí, de
+          fácil acesso e próximo ao transporte público. Para quem mora em outras cidades ou
+          estados, todo o acompanhamento pode ser feito à distância.
+        </p>
+      </div>
+      <div class="addr">
+        <h3>Localização</h3>
+        <p>
+          Rua Coronel Sarmento, 1560, sala 01<br />
+          Centro — Gravataí/RS · CEP 94010-030
+        </p>
+        <p>
+          Seg. a qui.: 9h–12h e 13h–17h<br />
+          Sex.: 9h–12h · WhatsApp na sexta até 16h
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Quer entender os seus direitos previdenciários?"
+    text="Converse com o escritório pelo WhatsApp, sem compromisso."
+  />
+</BaseLayout>
+
+<style>
+  .block { padding-block: 4.5rem; }
+  .two {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .figure,
+  .markbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .figure {
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--color-rule);
+    background: var(--color-teal-pale);
+  }
+  .figure span {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+
+  .deflist { border-top: 1px solid var(--color-rule); margin: 0; }
+  .def {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2.5rem;
+    padding: 1.75rem 0.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .def dt {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .def dd { margin: 0; color: var(--color-ink-soft); font-size: 1.03rem; }
+  .vlist { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.625rem; }
+  .vlist li { padding-left: 1.25rem; position: relative; }
+  .vlist li::before { content: '—'; position: absolute; left: 0; color: var(--color-gold); }
+
+  .note {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    border-left: 2px solid var(--color-gold-line);
+    padding-left: 0.875rem;
+    margin: 0.875rem 0 1.4rem;
+  }
+  .roster { border-top: 1px solid var(--color-rule); }
+  .rrow {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: baseline;
+    padding: 1.4rem 0.5rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .rrow .oab { font-family: var(--font-display); font-size: 0.8125rem; color: var(--color-ink-soft); }
+  .rrow p { margin: 0; font-size: 0.97rem; color: var(--color-ink-soft); }
+  .hold { color: var(--color-gold); font-style: italic; }
+
+  .addr {
+    border: 1px solid var(--color-rule);
+    border-top: 2px solid var(--color-gold);
+    padding: 1.6rem;
+  }
+  .addr p { font-size: 1rem; color: var(--color-ink-soft); margin: 0.625rem 0 0.75rem; }
+
+  @media (max-width: 860px) {
+    .two { grid-template-columns: 1fr; gap: 2.5rem; }
+    .def { grid-template-columns: 1fr; gap: 0.5rem; }
+    .rrow { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+</style>
