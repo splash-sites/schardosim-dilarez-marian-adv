@@ -1,7 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { NAV, whatsappHref } from '../consts';
-import HexMark from './HexMark.astro';
 import WhatsappButton from './WhatsappButton.astro';
+import logoMark from '../assets/logo-mark.png';
 
 const here = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isCurrent = (href: string) => {
@@ -13,7 +14,7 @@ const isCurrent = (href: string) => {
 <header class="site-header" id="site-header">
   <div class="wrap hd">
     <a class="brand" href="/">
-      <HexMark size={30} />
+      <Image src={logoMark} alt="" width={30} height={36} />
       <span class="brand-txt">
         <strong>Schardosim, Dilarez e Marian</strong>
         <span>Advogados Associados</span>
@@ -95,7 +96,8 @@ const isCurrent = (href: string) => {
     flex: 0 1 auto;
     min-width: 0;
   }
-  .brand :global(svg) { flex: none; }
+  .brand :global(svg),
+  .brand :global(img) { flex: none; }
   .brand-txt { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
   .brand-txt strong {
     font-family: var(--font-display);

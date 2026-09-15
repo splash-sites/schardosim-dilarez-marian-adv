@@ -9,7 +9,7 @@ related:
   - aposentadorias
   - auxilio-por-incapacidade-permanente
 faq:
-  - q: Faz quanto tempo que me aposentei — ainda dá para revisar?
+  - q: Faz quanto tempo que me aposentei, ainda dá para revisar?
     a: Em regra, há prazo de dez anos (decadência) para rever o ato de concessão, contado do mês seguinte ao primeiro pagamento. Algumas discussões seguem regras próprias. É preciso analisar a data.
   - q: A revisão pode diminuir o meu benefício?
     a: O pedido de revisão busca corrigir erros em favor do segurado. Antes de ajuizar, fazemos o cálculo para confirmar que há vantagem real.

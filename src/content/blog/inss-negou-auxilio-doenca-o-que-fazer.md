@@ -1,5 +1,5 @@
 ---
-title: O INSS negou o meu auxílio-doença — o que fazer?
+title: O INSS negou o meu auxílio-doença, o que fazer?
 description: 'Passo a passo depois de um indeferimento do auxílio por incapacidade temporária: entender o motivo, reunir a prova médica, recorrer no prazo e, se preciso, ir à Justiça.'
 keyword: INSS negou auxílio-doença o que fazer
 pubDate: 2026-09-01
@@ -30,8 +30,8 @@ O recurso administrativo ao Conselho de Recursos da Previdência Social tem praz
 
 ## 4. Se necessário, ação na Justiça Federal
 
-Quando a via administrativa não resolve, cabe ação — em regra no Juizado Especial Federal — com perícia médica judicial. É comum o benefício ser concedido nessa etapa quando a prova é bem construída.
+Quando a via administrativa não resolve, cabe ação (em regra no Juizado Especial Federal) com perícia médica judicial. É comum o benefício ser concedido nessa etapa quando a prova é bem construída.
 
 ## Precisa de ajuda com o seu caso?
 
-O escritório analisa a carta de indeferimento e o histórico médico e indica o melhor caminho. Fale pelo WhatsApp — a resposta sai em até 24 horas úteis.
+O escritório analisa a carta de indeferimento e o histórico médico e indica o melhor caminho. Fale pelo WhatsApp. A resposta sai em até 24 horas úteis.

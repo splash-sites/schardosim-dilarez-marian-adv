@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   description = SITE.description,
-  image,
+  image = '/og-image.jpg',
   noindex = false,
   article = false,
 } = Astro.props;
@@ -38,7 +38,9 @@ const ogImage = image
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 <meta name="author" content={SITE.author} />
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="/favicon.png" type="image/png" sizes="48x48" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#144e52" />
 
 <!-- Open Graph -->

@@ -3,7 +3,7 @@ title: Auxílio por incapacidade permanente (aposentadoria por invalidez)
 shortTitle: Auxílio por incapacidade permanente
 description: Concessão do auxílio por incapacidade permanente, pedido do adicional de 25% e revisão da cessação indevida do benefício. Advocacia previdenciária em Gravataí/RS.
 keyword: aposentadoria por invalidez advogado
-summary: A antiga aposentadoria por invalidez — concessão, adicional de 25% e revisão de altas indevidas.
+summary: 'A antiga aposentadoria por invalidez: concessão, adicional de 25% e revisão de altas indevidas.'
 order: 3
 related:
   - auxilio-por-incapacidade-temporaria

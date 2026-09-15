@@ -116,24 +116,30 @@ Define-se em `src/styles/global.css` (tokens em `:root`). Resumo:
 - WhatsApp: **(51) 99644-2529** · Telefone: **(51) 3490-5957**
 - E-mail: **contato@sdm-advprev.com.br**
 - Instagram: **@sdm.adv** · Facebook: página "Schardosim, Dilarez e Marian Advogados Associados"
-- Google Meu Negócio: 5,0 (8 avaliações). Coordenadas: lat **-29.9412034**, lng **-50.9927893**
+- Google Meu Negócio: 5,0 (14 avaliações). Coordenadas: lat **-29.9412034**, lng **-50.9927893**
 - Atendimento: seg–qui 9h–12h e 13h–17h; sex 9h–12h (WhatsApp na sexta até 16h)
 - Sócia confirmada: **Terezinha Pereira Schardosim Garcia — OAB/RS 60.163**, especialista em
   Direito Previdenciário, pós-graduação na área, 20+ anos.
 
 ## Pendências (a repopular antes do lançamento)
 
-- **Imagens**: nenhuma imagem é usada no código no momento (decisão do cliente). Slots de
-  foto ficam como blocos neutros com legenda; a cliente vai fornecer o material depois.
-  Ao adicionar, usar `<Image>` do Astro em `src/assets/` e `alt` descritivo.
-- **Sócias Dilarez e Marian**: nome completo, nº OAB, formação e bio — hoje em `TEAM` de
-  `consts.ts` como placeholder marcado `fictitious: true`.
-- **Domínio final** (provável `sdm-advprev.com.br`): trocar `SITE.url` em `consts.ts` e
-  confirmar no `astro.config.mjs`.
-- **CNPJ** do escritório (rodapé) e texto de **Visão** do escritório.
-- **Logotipo oficial** em vetor (hoje há uma recriação aproximada em `HexMark.astro`).
-- **Política de Privacidade**: texto redigido por uma advogada. A seção "Cookies e conteúdo
-  de terceiros" já descreve o mapa; revisar juridicamente.
+- **Fotos das sócias e do escritório**: resolvido. As três sócias têm nome completo, OAB,
+  formação e retrato individual reais em `TEAM` (`consts.ts`). Fotos de capa também aplicadas
+  no hero e em "O Escritório"/"Nossa história" (`src/assets/`).
+- **Logotipo oficial**: resolvido como PNG (`src/assets/logo-mark.png` e `logo-full.png`,
+  recortados do arquivo enviado pela cliente), aplicado no header, favicon e "Nossa marca".
+  `HexMark.astro` foi removido. Se a cliente enviar o vetor original (SVG), trocar o PNG pelo
+  SVG para escalar sem perda.
+- **CNPJ e Visão**: resolvido, ambos preenchidos (`CONTACT.cnpj`, rodapé, e seção "Missão,
+  visão e valores" em `/sobre`).
+- **Domínio final** (provável `sdm-advprev.com.br`): ainda pendente. Hoje `SITE.url` em
+  `consts.ts` e `SITE_URL` em `astro.config.mjs` apontam para `exemplo.com.br` — trocar nos
+  dois lugares antes do deploy.
+- **Foto da fachada do escritório**: ainda pendente, placeholder em `contato.astro`
+  ("Foto da fachada a definir").
+- **Política de Privacidade**: ainda pendente, texto marcado como provisório em
+  `politica-de-privacidade.astro` — precisa ser redigido e revisado por uma advogada. A seção
+  "Cookies e conteúdo de terceiros" já descreve o mapa; revisar juridicamente.
 - **Analytics**: sugerido Plausible/Umami (leve, sem banner de cookie). Não incluído ainda.
   Se entrar algo com cookie, ligar ao consentimento (ver abaixo).
 

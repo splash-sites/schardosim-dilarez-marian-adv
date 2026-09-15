@@ -1,9 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import CtaBand from '../components/CtaBand.astro';
-import HexMark from '../components/HexMark.astro';
+import ContactMap from '../components/ContactMap.astro';
+import Prose from '../components/Prose.astro';
 import { TEAM } from '../consts';
+import equipeEscritorio from '../assets/equipe-escritorio.jpg';
+import logoMark from '../assets/logo-mark.png';
 ---
 
 <BaseLayout
@@ -18,28 +22,56 @@ import { TEAM } from '../consts';
 
   <section class="rule-top block">
     <div class="wrap two">
-      <div class="figure" aria-hidden="true">
-        <HexMark size={90} color="var(--color-gold-line)" />
-        <span>Imagem do escritório a definir</span>
+      <div class="figure">
+        <Image src={equipeEscritorio} alt="As advogadas sócias de Schardosim, Dilarez e Marian Advogados Associados" widths={[400, 800, 1200]} sizes="(min-width: 900px) 480px, 100vw" style="object-position: center 5%" />
       </div>
       <div>
         <p class="kicker">Nossa história</p>
-        <h2>Direito Previdenciário desde 2004</h2>
+        <h2>Uma amizade que se tornou sociedade</h2>
         <p>
-          O escritório nasceu da dedicação ao Direito Previdenciário e, ao longo de mais de
-          duas décadas, construiu sua atuação com base em conhecimento técnico, atualização
-          permanente e acompanhamento individual de cada caso.
-        </p>
-        <p>
-          A experiência acumulada permite uma análise cuidadosa das particularidades de cada
-          situação, para identificar direitos, possibilidades e a estratégia jurídica mais
-          adequada.
-        </p>
-        <p>
-          A excelência na advocacia não se resume ao conhecimento jurídico. Por isso, unimos
-          competência técnica a escuta atenta, acolhimento, clareza e respeito.
+          Nossa história começou em 2003, quando iniciamos, juntas, o curso de pós-graduação
+          na Ulbra, em Canoas. Naquele momento, ainda não sabíamos tudo o que o futuro nos
+          reservava, mas já compartilhávamos um sonho: construir uma trajetória sólida na
+          advocacia, cada uma seguindo sua vocação e encontrando, no Direito, o caminho para
+          realizar seus projetos.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="rule-top block">
+    <div class="wrap">
+      <Prose>
+        <p>
+          Eu, Terezinha, já atuava em Gravataí, dedicada à advocacia. Minha irmã, Luiza, e
+          nossa colega Adriana (que, com o tempo, se tornaria muito mais que uma colega: uma
+          verdadeira irmã) tinham o coração voltado ao Direito do Trabalho. Foi entre aulas e
+          sonhos compartilhados que nasceu uma amizade verdadeira, daquelas que o tempo não
+          enfraquece, mas fortalece.
+        </p>
+        <p>
+          Por volta de 2008, cada uma seguiu seu caminho profissional, com escritório, equipe
+          e identidade próprios. Mas a distância entre nós nunca foi maior do que a proximidade:
+          continuamos trocando experiências, dúvidas e apoio a cada desafio da profissão.
+        </p>
+        <h3>O encontro que se tornou sociedade</h3>
+        <p>
+          Em 2018, a necessidade de formalizar a estrutura com um CNPJ virou a oportunidade de
+          transformar em sociedade uma união que já existia havia anos. Convidei Ângela e
+          Fernanda, até então profissionais contratadas, para dividirem comigo a
+          responsabilidade, os sonhos e os caminhos do escritório como sócias.
+        </p>
+        <p>
+          Elas aceitaram, e naquele momento não estávamos só constituindo uma empresa:
+          reafirmávamos a escolha de seguir juntas. Por isso escolhemos um nome que traduz
+          exatamente o que somos, um escritório que leva os nossos três sobrenomes.
+        </p>
+        <p>
+          Schardosim, Dilarez e Marian nasceu de uma amizade construída com sinceridade, muito
+          antes de qualquer contrato. É com essa mesma união, experiência e paixão pela
+          advocacia que seguimos escrevendo os próximos capítulos, lado a lado.
+        </p>
+      </Prose>
     </div>
   </section>
 
@@ -59,9 +91,9 @@ import { TEAM } from '../consts';
         <div class="def">
           <dt>Visão</dt>
           <dd>
-            <span class="hold">[rascunho a validar]</span> Ser referência em Direito
-            Previdenciário na região de Gravataí pela qualidade técnica e pelo cuidado no
-            atendimento.
+            Ser o escritório de referência em Direito Previdenciário em Gravataí e região,
+            reconhecido pela união entre conhecimento técnico e atendimento próximo, capaz de
+            acompanhar cada cliente do primeiro contato até a solução do seu caso.
           </dd>
         </div>
         <div class="def">
@@ -85,24 +117,23 @@ import { TEAM } from '../consts';
         <p class="kicker">Nossa marca</p>
         <h2>Unidade, inteligência e harmonia</h2>
         <p>
-          O símbolo do escritório é formado por hexágonos — figura ligada à perfeição, ao
+          O símbolo do escritório é formado por hexágonos, figura ligada à perfeição, ao
           trabalho, à sabedoria e à igualdade. A mesma forma remete a um escudo: proteção aos
           clientes.
         </p>
         <p>
-          Os três elementos representam os nomes que compõem a sociedade — Schardosim, Dilarez
-          e Marian — que, juntos, formam um todo.
+          Os três elementos representam os nomes que compõem a sociedade, Schardosim, Dilarez
+          e Marian, que juntos formam um todo.
         </p>
       </div>
-      <div class="markbox"><HexMark size={150} /></div>
+      <div class="markbox"><Image src={logoMark} alt="Símbolo Schardosim, Dilarez e Marian" width={150} height={180} /></div>
     </div>
   </section>
 
   <section class="rule-top block">
     <div class="wrap">
       <p class="kicker">Quem atende você</p>
-      <h2 style="margin-bottom:0.4rem">As sócias</h2>
-      <p class="note">Retratos das advogadas a produzir · dados de Dilarez e Marian a confirmar.</p>
+      <h2 style="margin-bottom:1.5rem">As sócias</h2>
       <div class="roster">
         {
           TEAM.map((p) => (
@@ -111,7 +142,7 @@ import { TEAM } from '../consts';
                 <h3 class:list={[p.fictitious && 'hold']}>{p.name}</h3>
                 <span class="oab">{p.oab}</span>
               </div>
-              <p class:list={[p.fictitious && 'hold']}>{p.bio}</p>
+              {p.bio && <p class:list={[p.fictitious && 'hold']}>{p.bio}</p>}
             </div>
           ))
         }
@@ -132,11 +163,7 @@ import { TEAM } from '../consts';
         </p>
       </div>
       <div class="addr">
-        <h3>Localização</h3>
-        <p>
-          Rua Coronel Sarmento, 1560, sala 01<br />
-          Centro — Gravataí/RS · CEP 94010-030
-        </p>
+        <ContactMap />
         <p>
           Seg. a qui.: 9h–12h e 13h–17h<br />
           Sex.: 9h–12h · WhatsApp na sexta até 16h
@@ -171,6 +198,12 @@ import { TEAM } from '../consts';
     aspect-ratio: 4 / 5;
     border: 1px solid var(--color-rule);
     background: var(--color-teal-pale);
+    overflow: hidden;
+  }
+  .figure :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .figure span {
     font-family: var(--font-display);
@@ -188,6 +221,7 @@ import { TEAM } from '../consts';
     padding: 1.75rem 0.5rem;
     border-bottom: 1px solid var(--color-rule);
   }
+  .def:last-child { border-bottom: 0; }
   .def dt {
     font-family: var(--font-display);
     font-size: 0.8125rem;
@@ -224,9 +258,8 @@ import { TEAM } from '../consts';
   .addr {
     border: 1px solid var(--color-rule);
     border-top: 2px solid var(--color-gold);
-    padding: 1.6rem;
   }
-  .addr p { font-size: 1rem; color: var(--color-ink-soft); margin: 0.625rem 0 0.75rem; }
+  .addr p { font-size: 1rem; color: var(--color-ink-soft); margin: 0; padding: 1.1rem 1.6rem; }
 
   @media (max-width: 860px) {
     .two { grid-template-columns: 1fr; gap: 2.5rem; }

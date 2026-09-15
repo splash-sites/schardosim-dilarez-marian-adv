@@ -3,7 +3,7 @@ title: Auxílio por incapacidade temporária (auxílio-doença)
 shortTitle: Auxílio por incapacidade temporária
 description: Pedido, prorrogação e recurso do auxílio por incapacidade temporária quando a perícia do INSS conclui pela capacidade. Advocacia previdenciária em Gravataí/RS.
 keyword: advogado auxílio-doença INSS
-summary: O antigo auxílio-doença — do requerimento ao recurso, quando a perícia médica nega a incapacidade.
+summary: O antigo auxílio-doença, do requerimento ao recurso, quando a perícia médica nega a incapacidade.
 order: 2
 featured: true
 related:
@@ -19,7 +19,7 @@ faq:
     a: Varia conforme a fila de perícia e a região. Acompanhamos os prazos e agimos quando há demora excessiva.
 ---
 
-O auxílio por incapacidade temporária — antigo auxílio-doença — é devido a quem fica incapaz para o trabalho por doença ou acidente, por um período determinado. Muitos pedidos são negados na perícia mesmo com laudos que atestam a incapacidade. O escritório organiza a prova médica e conduz o pedido em todas as etapas.
+O auxílio por incapacidade temporária (antigo auxílio-doença) é devido a quem fica incapaz para o trabalho por doença ou acidente, por um período determinado. Muitos pedidos são negados na perícia mesmo com laudos que atestam a incapacidade. O escritório organiza a prova médica e conduz o pedido em todas as etapas.
 
 ## Como acompanhamos o seu caso
 

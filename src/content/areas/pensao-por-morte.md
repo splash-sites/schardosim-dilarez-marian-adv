@@ -1,5 +1,5 @@
 ---
-title: Pensão por morte — requerimento e defesa do benefício
+title: Pensão por morte, requerimento e defesa do benefício
 shortTitle: Pensão por morte
 description: Requerimento e defesa da pensão por morte para cônjuge, companheiro(a) e filhos, inclusive prova de união estável e de dependência econômica. Advocacia previdenciária em Gravataí/RS.
 keyword: advogado pensão por morte INSS

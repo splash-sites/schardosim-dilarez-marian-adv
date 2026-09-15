@@ -39,7 +39,7 @@ Por idade ou por tempo de contribuição, com redução de requisitos conforme o
 
 ### Aposentadoria especial
 
-Para quem trabalhou exposto a agentes nocivos — ruído, calor, agentes químicos ou biológicos. Reunimos PPP, LTCAT e demais provas da atividade especial.
+Para quem trabalhou exposto a agentes nocivos: ruído, calor, agentes químicos ou biológicos. Reunimos PPP, LTCAT e demais provas da atividade especial.
 
 ### Aposentadoria rural e híbrida
 

@@ -1,5 +1,5 @@
 ---
-title: BPC/LOAS — benefício assistencial para idoso e pessoa com deficiência
+title: BPC/LOAS, benefício assistencial para idoso e pessoa com deficiência
 shortTitle: BPC / LOAS
 description: Requerimento e defesa do BPC/LOAS, o benefício assistencial de um salário mínimo para idosos a partir de 65 anos e pessoas com deficiência em situação de vulnerabilidade.
 keyword: advogado BPC LOAS Gravataí
@@ -28,7 +28,7 @@ A partir de 65 anos, com análise da renda e da composição familiar.
 
 ### Pessoa com deficiência
 
-Deficiência de longo prazo — física, mental, intelectual ou sensorial — que, em interação com barreiras, obstrui a participação plena na sociedade. Avaliação médica e social.
+Deficiência de longo prazo (física, mental, intelectual ou sensorial) que, em interação com barreiras, obstrui a participação plena na sociedade. Avaliação médica e social.
 
 ## Como o escritório atua
 

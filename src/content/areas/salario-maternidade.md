@@ -1,5 +1,5 @@
 ---
-title: Salário-maternidade — urbana, rural e por adoção
+title: Salário-maternidade urbana, rural e por adoção
 shortTitle: Salário-maternidade
 description: Salário-maternidade para trabalhadoras urbanas, rurais, autônomas e desempregadas dentro do período de graça, inclusive em caso de adoção. Advocacia previdenciária em Gravataí/RS.
 keyword: advogado salário-maternidade INSS
@@ -10,7 +10,7 @@ related:
   - inss-negou-o-pedido
 faq:
   - q: Estou desempregada. Ainda tenho direito ao salário-maternidade?
-    a: Pode ter, se o nascimento ocorreu dentro do período de graça — o intervalo em que a qualidade de segurada se mantém mesmo sem contribuir.
+    a: Pode ter, se o nascimento ocorreu dentro do período de graça (o intervalo em que a qualidade de segurada se mantém mesmo sem contribuir).
   - q: Trabalho na roça. Como comprovo para receber?
     a: Com início de prova material (documentos que liguem você à atividade rural) somado a prova testemunhal do período exigido.
 ---

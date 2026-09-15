@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -25,22 +26,27 @@ const initials = (name: string) =>
     lead="O atendimento é conduzido diretamente pelas advogadas sócias, com dedicação individual a cada caso."
   />
 
-  <div class="wrap">
-    <p class="note">
-      Retratos das advogadas a produzir · textos de Dilarez e Marian são exemplo, a cliente
-      vai enviar os definitivos.
-    </p>
-  </div>
-
   <section class="block">
     <div class="wrap">
       <div class="people">
         {
           TEAM.map((p) => (
             <article class="person">
-              <div class="portrait" aria-hidden="true">
-                <span class="mono">{initials(p.name)}</span>
-                <span class="cap">Retrato a produzir</span>
+              <div class="portrait">
+                {p.photo ? (
+                  <Image
+                    src={p.photo}
+                    alt={p.name}
+                    widths={[300, 500]}
+                    sizes="220px"
+                    style={p.focus ? `object-position: ${p.focus}` : undefined}
+                  />
+                ) : (
+                  <>
+                    <span class="mono">{initials(p.name)}</span>
+                    <span class="cap">Retrato a produzir</span>
+                  </>
+                )}
               </div>
               <div>
                 <h3 class:list={[p.fictitious && 'hold']}>{p.name}</h3>
@@ -53,9 +59,11 @@ const initials = (name: string) =>
                     ))}
                   </ul>
                 )}
-                <p class="bio" class:list={[p.fictitious && 'hold']}>
-                  {p.bio}
-                </p>
+                {p.bio && (
+                  <p class="bio" class:list={[p.fictitious && 'hold']}>
+                    {p.bio}
+                  </p>
+                )}
               </div>
             </article>
           ))
@@ -77,7 +85,7 @@ const initials = (name: string) =>
         </div>
         <div class="d">
           <dt>Acompanhamento próximo</dt>
-          <dd>Você é informado a cada movimento do processo, administrativo ou judicial.</dd>
+          <dd>Acompanhamos de perto cada movimento do processo, administrativo ou judicial.</dd>
         </div>
         <div class="d">
           <dt>Análise cuidadosa</dt>
@@ -119,6 +127,12 @@ const initials = (name: string) =>
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+    overflow: hidden;
+  }
+  .portrait :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .portrait .mono { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-gold); }
   .portrait .cap {

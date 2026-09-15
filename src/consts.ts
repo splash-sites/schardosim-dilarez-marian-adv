@@ -1,8 +1,12 @@
 // -----------------------------------------------------------------------------
-// Configuração central do site. Repopular com os dados reais da cliente.
-// Campos marcados "FICTÍCIO" são placeholders aprovados pela cliente para o
-// preview — trocar antes do deploy final.
+// Configuração central do site. SITE.url ainda é um domínio placeholder
+// (exemplo.com.br) — trocar pelo domínio final antes do deploy, junto com
+// SITE_URL em astro.config.mjs.
 // -----------------------------------------------------------------------------
+import type { ImageMetadata } from 'astro';
+import terezinhaPhoto from './assets/terezinha-schardosim.jpg';
+import fernandaPhoto from './assets/fernanda-dilarez.jpg';
+import angelaPhoto from './assets/angela-marian.jpg';
 
 export const SITE = {
   name: 'Schardosim e Dilarez e Marian Advogados Associados',
@@ -18,7 +22,7 @@ export const SITE = {
 
 export const CONTACT = {
   email: 'contato@sdm-advprev.com.br',
-  phones: ['(51) 3490-5957', '(51) 99644-2529'],
+  phones: ['(51) 3490-5957'],
   // Compat: primeiro telefone como principal.
   phone: '(51) 3490-5957',
   // WhatsApp: somente dígitos com DDI 55.
@@ -46,6 +50,7 @@ export const CONTACT = {
   googleReviewsUrl: 'https://share.google/hi871DpUq6lr332uG',
   responseTime: 'Respondemos em até 24 horas úteis.',
   oab: 'OAB/RS',
+  cnpj: '30.494.014/0001-70',
 } as const;
 
 export const SOCIAL = {
@@ -63,7 +68,7 @@ export const whatsappHref = CONTACT.whatsapp
 export const mailtoHref = CONTACT.email ? `mailto:${CONTACT.email}` : '';
 
 // -----------------------------------------------------------------------------
-// Sócias. bio1 = real (cliente enviou). bio2/bio3 = FICTÍCIO para o preview.
+// Sócias.
 // -----------------------------------------------------------------------------
 export const TEAM: {
   name: string;
@@ -71,8 +76,9 @@ export const TEAM: {
   oab: string;
   role: string;
   education: string[];
-  bio: string;
-  photo: string; // caminho em /public/equipe — sem foto ainda
+  bio?: string;
+  photo: ImageMetadata | null;
+  focus?: string; // object-position do retrato, quando o rosto não fica centralizado no crop
   fictitious?: boolean;
 }[] = [
   {
@@ -81,38 +87,40 @@ export const TEAM: {
     oab: 'OAB/RS 60.163',
     role: 'Advogada — Especialista em Direito Previdenciário',
     education: [
+      'Graduação em Direito pela Ulbra',
       'Pós-graduação em Direito Previdenciário',
       'Cursos de aperfeiçoamento e especialização em Direito Previdenciário',
       'Participação contínua em seminários e congressos da área',
     ],
-    bio: 'Advogada há mais de 20 anos, com atuação dedicada ao Direito Previdenciário. Trabalho baseado em conhecimento técnico, atualização permanente, ética e dedicação individual a cada caso, aliando competência jurídica a escuta atenta, acolhimento e clareza nas orientações.',
-    photo: '',
+    photo: terezinhaPhoto,
+    focus: '50% 18%',
   },
   {
-    name: 'Ana Beatriz Dilarez Moraes', // FICTÍCIO
-    slug: 'ana-dilarez',
-    oab: 'OAB/RS 000.000', // FICTÍCIO
-    role: 'Advogada — Direito Previdenciário',
+    name: 'Fernanda Dilarez dos Santos',
+    slug: 'fernanda-dilarez',
+    oab: 'OAB/RS 90.905',
+    role: 'Advogada — Especialista em Direito Previdenciário',
     education: [
-      'Pós-graduação em Direito Previdenciário (FICTÍCIO)',
-      'Graduação em Direito (FICTÍCIO)',
+      'Graduação em Direito pela PUCRS',
+      'Especialista em Direito Previdenciário',
+      'Especialista em Processo Civil',
     ],
-    bio: 'TEXTO FICTÍCIO PARA O PREVIEW. Atuação em benefícios por incapacidade, revisões e recursos administrativos junto ao INSS, com foco em atendimento próximo e acompanhamento do cliente em todas as etapas do processo.',
-    photo: '',
-    fictitious: true,
+    photo: fernandaPhoto,
   },
   {
-    name: 'Carla Marian Ferreira', // FICTÍCIO
-    slug: 'carla-marian',
-    oab: 'OAB/RS 000.000', // FICTÍCIO
-    role: 'Advogada — Direito Previdenciário',
+    name: 'Angela Pires Marian',
+    slug: 'angela-marian',
+    oab: 'OAB/RS 108.382',
+    role: 'Advogada — Especialista em Direito Previdenciário',
     education: [
-      'Pós-graduação em Direito Previdenciário (FICTÍCIO)',
-      'Graduação em Direito (FICTÍCIO)',
+      'Graduação em Direito pela Faculdade CNEC Gravataí',
+      'Especialista em Processo Civil Previdenciário',
+      'Pós-Especialista em Direito Previdenciário',
+      'Especialista em Processo Civil',
+      'Pós-Graduanda em Processo Administrativo Previdenciário',
     ],
-    bio: 'TEXTO FICTÍCIO PARA O PREVIEW. Atuação em planejamento previdenciário e aposentadorias, orientando segurados sobre o melhor momento e a melhor via para requerer o benefício.',
-    photo: '',
-    fictitious: true,
+    photo: angelaPhoto,
+    focus: '38% 18%',
   },
 ];
 

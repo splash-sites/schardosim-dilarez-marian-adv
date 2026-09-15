@@ -1,5 +1,5 @@
 ---
-title: O INSS negou o pedido — recurso e ação judicial
+title: O INSS negou o pedido, recurso e ação judicial
 shortTitle: Quando o INSS nega o pedido
 description: Recurso administrativo junto ao Conselho de Recursos da Previdência Social e ação na Justiça Federal quando o INSS indefere aposentadoria, auxílio ou pensão. Gravataí/RS.
 keyword: INSS negou benefício advogado
@@ -24,7 +24,7 @@ Receber uma carta de indeferimento do INSS não é o fim do processo. Muitos ben
 
 ### Leitura da negativa
 
-Analisamos a carta e o processo administrativo para identificar o motivo real do indeferimento — falta de documento, perícia desfavorável, tempo não reconhecido, dúvida sobre a qualidade de segurado.
+Analisamos a carta e o processo administrativo para identificar o motivo real do indeferimento: falta de documento, perícia desfavorável, tempo não reconhecido, dúvida sobre a qualidade de segurado.
 
 ### Recurso administrativo
 
@@ -32,7 +32,7 @@ Apresentação de recurso ao Conselho de Recursos da Previdência Social, com a 
 
 ### Ação na Justiça Federal
 
-Quando a via administrativa se esgota, ajuizamos a ação — em regra no Juizado Especial Federal — com pedido de perícia judicial quando o caso envolve incapacidade.
+Quando a via administrativa se esgota, ajuizamos a ação (em regra no Juizado Especial Federal) com pedido de perícia judicial quando o caso envolve incapacidade.
 
 ## Leve com você
 
