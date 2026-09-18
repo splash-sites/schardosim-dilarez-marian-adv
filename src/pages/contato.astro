@@ -47,22 +47,23 @@ const waNumber = CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$
           </div>
         </dl>
 
-        <table class="hours">
-          <tbody>
-            <tr><th scope="row">Segunda a quinta</th><td>9h–12h e 13h–17h</td></tr>
-            <tr><th scope="row">Sexta-feira</th><td>9h–12h · WhatsApp até 16h</td></tr>
-          </tbody>
-        </table>
+        <div class="hours-box">
+          <table class="hours">
+            <tbody>
+              <tr><th scope="row">Segunda a quinta</th><td>9h–12h e 13h–17h</td></tr>
+              <tr><th scope="row">Sexta-feira</th><td>9h–12h · WhatsApp até 16h</td></tr>
+            </tbody>
+          </table>
 
-        <p class="resp">Respondemos as mensagens em até 24 horas úteis.</p>
-        <div style="margin-top:1.25rem">
-          <WhatsappButton />
+          <p class="resp">Respondemos as mensagens em até 24 horas úteis.</p>
+          <div style="margin-top:1.25rem">
+            <WhatsappButton />
+          </div>
         </div>
       </div>
 
       <div>
         <ContactMap />
-        <div class="figure" aria-hidden="true">Foto da fachada a definir</div>
       </div>
     </div>
   </section>
@@ -112,7 +113,12 @@ const waNumber = CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$
   .chan dd { margin: 0; color: var(--color-ink); }
   .chan .muted { color: var(--color-ink-soft); font-size: 0.9375rem; margin-left: 0.4rem; }
 
-  .hours { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 1rem; }
+  .hours-box {
+    margin-top: 1.5rem;
+    border: 1px solid var(--color-rule);
+    padding: 1.5rem;
+  }
+  .hours { width: 100%; border-collapse: collapse; font-size: 1rem; }
   .hours th,
   .hours td { text-align: left; padding: 0.625rem 0; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-soft); }
   .hours th { font-family: var(--font-display); font-weight: 500; color: var(--color-teal-deep); font-size: 0.875rem; }
@@ -124,21 +130,6 @@ const waNumber = CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$
     border-left: 2px solid var(--color-gold-line);
     padding-left: 0.875rem;
     margin-top: 1.25rem;
-  }
-
-  .figure {
-    margin-top: 1.25rem;
-    border: 1px solid var(--color-rule);
-    background: var(--color-teal-pale);
-    aspect-ratio: 16 / 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-ink-soft);
   }
 
   .social { list-style: none; padding: 0; margin: 0.375rem 0 0; display: grid; gap: 0.75rem; font-family: var(--font-display); }

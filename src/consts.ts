@@ -120,7 +120,6 @@ export const TEAM: {
       'Pós-Graduanda em Processo Administrativo Previdenciário',
     ],
     photo: angelaPhoto,
-    focus: '38% 18%',
   },
 ];
 
