@@ -1,7 +1,7 @@
 ---
 title: Revisão de benefício do INSS
 shortTitle: Revisão de benefício
-description: Recálculo de benefícios já concedidos quando há tempo especial não reconhecido, erro na renda mensal inicial ou vínculos ausentes no CNIS. Advocacia previdenciária em Gravataí/RS.
+description: Recálculo de benefícios já concedidos quando há tempo especial não reconhecido, erro na renda mensal inicial ou vínculos ausentes no CNIS.
 keyword: advogado revisão de aposentadoria INSS
 summary: Recálculo de benefícios já concedidos para corrigir renda inicial, tempo especial e vínculos faltantes.
 order: 7

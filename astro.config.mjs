@@ -4,8 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // Domínio final do site. Manter igual a SITE.url em src/consts.ts.
-// TROCAR antes do deploy (sugerido: https://sdm-advprev.com.br).
-const SITE_URL = 'https://exemplo.com.br';
+const SITE_URL = 'https://sdm-advprev.com.br';
 
 // https://astro.build/config
 export default defineConfig({

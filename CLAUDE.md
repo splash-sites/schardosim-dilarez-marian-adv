@@ -132,11 +132,18 @@ Define-se em `src/styles/global.css` (tokens em `:root`). Resumo:
   SVG para escalar sem perda.
 - **CNPJ e Visão**: resolvido, ambos preenchidos (`CONTACT.cnpj`, rodapé, e seção "Missão,
   visão e valores" em `/sobre`).
-- **Domínio final** (provável `sdm-advprev.com.br`): ainda pendente. Hoje `SITE.url` em
-  `consts.ts` e `SITE_URL` em `astro.config.mjs` apontam para `exemplo.com.br` — trocar nos
-  dois lugares antes do deploy.
-- **Foto da fachada do escritório**: ainda pendente, placeholder em `contato.astro`
-  ("Foto da fachada a definir").
+- **Domínio final**: resolvido, `sdm-advprev.com.br` em `SITE.url` (`consts.ts`) e `SITE_URL`
+  (`astro.config.mjs`). Deploy migrando de Vercel para HostGator (cPanel, plano M) —
+  `public/.htaccess` cobre HTTPS, canonicalização sem "www", página 404, compressão e cache
+  (a Vercel fazia isso via `vercel.json`, que não vale mais fora dela).
+- **SEO — varredura pré-lançamento (2026-09-28)**: títulos `<title>` das páginas de área
+  encurtados via campo opcional `seoTitle` em `content.config.ts` (cai no `title`/H1 se não
+  definido) — o H1 continua completo. Meta descriptions ajustadas para ~150-160 caracteres.
+  `robots.txt` virou rota dinâmica (`src/pages/robots.txt.ts`) lendo de `SITE.url`, nunca mais
+  desatualiza. JSON-LD ganhou `aggregateRating` (`CONTACT.rating`) para exibir estrelas no
+  resultado do Google. Qualidade das imagens do hero/equipe reduzida (65-70) para aliviar LCP.
+  Ainda pendente: só 1 post no blog (pouco conteúdo de cauda longa), Google Search Console/Bing
+  Webmaster ainda não configurados.
 - **Política de Privacidade**: ainda pendente, texto marcado como provisório em
   `politica-de-privacidade.astro` — precisa ser redigido e revisado por uma advogada. A seção
   "Cookies e conteúdo de terceiros" já descreve o mapa; revisar juridicamente.

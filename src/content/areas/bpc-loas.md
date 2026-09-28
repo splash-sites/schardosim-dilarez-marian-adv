@@ -1,7 +1,8 @@
 ---
 title: BPC/LOAS, benefício assistencial para idoso e pessoa com deficiência
 shortTitle: BPC / LOAS
-description: Requerimento e defesa do BPC/LOAS, o benefício assistencial de um salário mínimo para idosos a partir de 65 anos e pessoas com deficiência em situação de vulnerabilidade.
+seoTitle: 'BPC/LOAS: Benefício Assistencial INSS'
+description: Requerimento e defesa do BPC/LOAS, benefício assistencial de um salário mínimo para idosos e pessoas com deficiência em vulnerabilidade social.
 keyword: advogado BPC LOAS Gravataí
 summary: Benefício de um salário mínimo, sem exigência de contribuição, para idosos e pessoas com deficiência.
 order: 4

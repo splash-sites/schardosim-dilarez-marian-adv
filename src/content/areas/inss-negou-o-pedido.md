@@ -1,7 +1,7 @@
 ---
 title: O INSS negou o pedido, recurso e ação judicial
 shortTitle: Quando o INSS nega o pedido
-description: Recurso administrativo junto ao Conselho de Recursos da Previdência Social e ação na Justiça Federal quando o INSS indefere aposentadoria, auxílio ou pensão. Gravataí/RS.
+description: Recurso administrativo e ação na Justiça Federal quando o INSS indefere aposentadoria, auxílio ou pensão. Atendimento em Gravataí/RS.
 keyword: INSS negou benefício advogado
 summary: Análise da carta de indeferimento, recurso administrativo e, quando necessário, ação na Justiça Federal.
 order: 8

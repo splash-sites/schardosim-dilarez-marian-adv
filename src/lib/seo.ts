@@ -57,6 +57,15 @@ export function organizationSchema() {
       closes: h.closes,
     })),
     ...(sameAs.length ? { sameAs } : {}),
+    ...(CONTACT.rating
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: CONTACT.rating.value,
+            reviewCount: CONTACT.rating.count,
+          },
+        }
+      : {}),
     knowsAbout: [
       'Direito Previdenciário',
       'Aposentadoria',

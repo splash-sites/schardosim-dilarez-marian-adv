@@ -5,9 +5,13 @@ import { glob } from 'astro/loaders';
 const areas = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/areas' }),
   schema: z.object({
-    title: z.string(), // <h1> e base do <title>
+    title: z.string(), // <h1> — pode ser mais longo e descritivo
     // Nome curto para menus, cards e listas (ex.: "Aposentadorias").
     shortTitle: z.string(),
+    // Título curto para a tag <title> (SEO) — usar quando `title` passar de
+    // ~40 caracteres, pra não cortar no resultado do Google. Cai no `title`
+    // se não for definido.
+    seoTitle: z.string().optional(),
     // Meta description específica (~150-160 caracteres). Obrigatória para SEO.
     description: z.string(),
     // Palavra-chave-alvo principal (documental, não renderiza).
@@ -32,6 +36,8 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
+    // Título curto para a tag <title> (SEO) — ver comentário equivalente em `areas`.
+    seoTitle: z.string().optional(),
     description: z.string(),
     keyword: z.string().optional(),
     pubDate: z.coerce.date(),

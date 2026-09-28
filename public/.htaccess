@@ -1,0 +1,37 @@
+# Schardosim, Dilarez e Marian — configuração para hospedagem Apache (HostGator).
+# A Vercel fazia isso automaticamente (HTTPS, URL canônica); aqui precisa
+# do .htaccess. Ajustar o domínio abaixo se ele mudar.
+
+RewriteEngine On
+
+# Força HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Canoniza para sem "www" (mantém igual a SITE.url em src/consts.ts)
+RewriteCond %{HTTP_HOST} ^www\.sdm-advprev\.com\.br$ [NC]
+RewriteRule ^ https://sdm-advprev.com.br%{REQUEST_URI} [L,R=301]
+
+# Página de erro 404 (gerada pelo Astro em src/pages/404.astro)
+ErrorDocument 404 /404.html
+
+# Compressão (melhora performance = fator de ranqueamento)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/xml text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Cache: assets com hash no nome (/_astro/) podem cachear por 1 ano
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Evita listagem de diretório
+Options -Indexes

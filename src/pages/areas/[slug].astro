@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, description, summary, faq, related } = entry.data;
+const { title, seoTitle, description, summary, faq, related } = entry.data;
 
 const all = await getCollection('areas', ({ data }) => !data.draft);
 const relatedEntries = related
@@ -25,7 +25,7 @@ const schema = faq.length ? [faqSchema(faq)] : [];
 const waNumber = CONTACT.whatsapp.replace(/^55(\d\d)(\d{5})(\d{4})$/, '($1) $2-$3');
 ---
 
-<BaseLayout title={title} description={description} schema={schema}>
+<BaseLayout title={seoTitle ?? title} description={description} schema={schema}>
   <section class="page-header">
     <div class="wrap">
       <Breadcrumbs

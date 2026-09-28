@@ -1,6 +1,7 @@
 ---
 title: Auxílio por incapacidade temporária (auxílio-doença)
 shortTitle: Auxílio por incapacidade temporária
+seoTitle: Auxílio-Doença INSS em Gravataí
 description: Pedido, prorrogação e recurso do auxílio por incapacidade temporária quando a perícia do INSS conclui pela capacidade. Advocacia previdenciária em Gravataí/RS.
 keyword: advogado auxílio-doença INSS
 summary: O antigo auxílio-doença, do requerimento ao recurso, quando a perícia médica nega a incapacidade.

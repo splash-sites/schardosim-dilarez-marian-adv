@@ -1,6 +1,7 @@
 ---
 title: O INSS negou o meu auxílio-doença, o que fazer?
-description: 'Passo a passo depois de um indeferimento do auxílio por incapacidade temporária: entender o motivo, reunir a prova médica, recorrer no prazo e, se preciso, ir à Justiça.'
+seoTitle: 'INSS Negou o Auxílio-Doença? Veja o que Fazer'
+description: 'Passo a passo depois de um indeferimento do auxílio por incapacidade temporária: entender o motivo, reunir a prova médica e recorrer no prazo.'
 keyword: INSS negou auxílio-doença o que fazer
 pubDate: 2026-09-01
 tags:

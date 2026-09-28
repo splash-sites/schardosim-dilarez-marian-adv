@@ -1,6 +1,7 @@
 ---
 title: Advogada para aposentadoria em Gravataí e região
 shortTitle: Aposentadorias
+seoTitle: Advogada de Aposentadoria em Gravataí
 description: Orientação sobre o melhor momento e a melhor regra para se aposentar e defesa do seu direito quando o INSS indefere o pedido. Atendimento em Gravataí/RS e on-line.
 keyword: advogado aposentadoria Gravataí
 summary: Planejamento previdenciário, análise do CNIS e acompanhamento do pedido, na via administrativa ou judicial.

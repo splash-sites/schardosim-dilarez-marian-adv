@@ -1,7 +1,5 @@
 // -----------------------------------------------------------------------------
-// Configuração central do site. SITE.url ainda é um domínio placeholder
-// (exemplo.com.br) — trocar pelo domínio final antes do deploy, junto com
-// SITE_URL em astro.config.mjs.
+// Configuração central do site.
 // -----------------------------------------------------------------------------
 import type { ImageMetadata } from 'astro';
 import terezinhaPhoto from './assets/terezinha-schardosim.jpg';
@@ -11,12 +9,14 @@ import angelaPhoto from './assets/angela-marian.jpg';
 export const SITE = {
   name: 'Schardosim e Dilarez e Marian Advogados Associados',
   shortName: 'Schardosim, Dilarez e Marian',
-  // TROCAR pelo domínio real (sem barra no final). Sugerido: sdm-advprev.com.br
-  url: 'https://exemplo.com.br',
+  // Sufixo curto usado só na tag <title> (SEO) — mantém o título da página
+  // dentro do limite que o Google exibe sem cortar (~60 caracteres somados).
+  titleTag: 'SDM Advocacia',
+  url: 'https://sdm-advprev.com.br',
   lang: 'pt-BR',
   locale: 'pt_BR',
   description:
-    'Advocacia especializada em Direito Previdenciário em Gravataí/RS. Aposentadorias, auxílio por incapacidade, BPC/LOAS e revisão de benefícios do INSS. Atendimento presencial na região e online.',
+    'Advocacia especializada em Direito Previdenciário em Gravataí/RS: aposentadorias, auxílio por incapacidade, BPC/LOAS e revisão de benefícios do INSS.',
   author: 'Schardosim e Dilarez e Marian Advogados Associados',
 } as const;
 
@@ -48,6 +48,9 @@ export const CONTACT = {
   ],
   mapsUrl: 'https://maps.app.goo.gl/7YweEK3NGNaybTSi6',
   googleReviewsUrl: 'https://share.google/hi871DpUq6lr332uG',
+  // Nota e nº de avaliações do Google Meu Negócio — atualizar aqui quando mudar.
+  // Alimenta o aggregateRating do JSON-LD (habilita estrelas no resultado do Google).
+  rating: { value: 5.0, count: 14 },
   responseTime: 'Respondemos em até 24 horas úteis.',
   oab: 'OAB/RS',
   cnpj: '30.494.014/0001-70',

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, description, pubDate, updatedDate, author } = entry.data;
+const { title, seoTitle, description, pubDate, updatedDate, author } = entry.data;
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
@@ -28,7 +28,7 @@ const schema = articleSchema({
 });
 ---
 
-<BaseLayout title={title} description={description} article schema={schema}>
+<BaseLayout title={seoTitle ?? title} description={description} article schema={schema}>
   <article>
     <div class="wrap head">
       <Breadcrumbs trail={[{ name: 'Artigos', url: '/blog' }, { name: title }]} />

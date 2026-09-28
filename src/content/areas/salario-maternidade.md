@@ -1,7 +1,7 @@
 ---
 title: Salário-maternidade urbana, rural e por adoção
 shortTitle: Salário-maternidade
-description: Salário-maternidade para trabalhadoras urbanas, rurais, autônomas e desempregadas dentro do período de graça, inclusive em caso de adoção. Advocacia previdenciária em Gravataí/RS.
+description: Salário-maternidade para trabalhadoras urbanas, rurais, autônomas e desempregadas dentro do período de graça, inclusive em caso de adoção.
 keyword: advogado salário-maternidade INSS
 summary: Benefício por 120 dias no nascimento ou na adoção, também para quem contribui como autônoma ou está no período de graça.
 order: 6
